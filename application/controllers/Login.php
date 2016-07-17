@@ -32,7 +32,11 @@ class Login extends CI_Controller {
 				$this->successResto();
 			}
 			else { // users
-				redirect("Login/successUser");
+				$newData = array(
+					'user_id' => $data->user_id
+					);
+				$this->session->set_userdata($newData);
+				$this->successUser();
 			}
 		} else {
 			redirect("Login/loginFailed");
@@ -42,6 +46,10 @@ class Login extends CI_Controller {
 
 	public function successResto() {
 		redirect("Restaurant/index");
+	}
+
+	public function successUser() {
+		redirect("Restaurant/restaurantsView");
 	}
 
 	

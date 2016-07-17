@@ -25,7 +25,7 @@
 	<div id="restaurants-container">
 	<?php if(isset($restaurants)) { 
 		foreach($restaurants as $restaurant) { ?>
-		
+			<?php echo form_open('restaurantUserView'); ?>
 			<section class="feed-card-restaurants"> 
 				<h1 class="restaurant-name"><?php echo $restaurant->name; ?></h1>
 				<div class="restaurant-info">
@@ -34,10 +34,10 @@
 					<h3> Price Range: <?php echo $restaurant->price_range_min . "-" . $restaurant->price_range_max; ?> </h3>
 				</div>
 				<div class="restaurant-image" style='background: url("<?php echo base_url(); ?>assets/images/<?php echo $restaurant->profile_photo_url; ?>");'> 
-
+					<button> Visit!</button>
 				</div>
 			</section>
-			
+			<?php echo form_close(); ?>
 		
 	
 	<?php } } ?>
